@@ -30,6 +30,11 @@ class UsersType extends GraphQLType
                 'type' => Type::string(),
                 'description' => 'The name of the user',
             ],
+            'group' => [
+                'type' => GraphQL::type('groups'),
+                'description' => 'Grupo do usuario',
+                'always' => ['id', 'body'],
+            ]
         ];
     }
 }
