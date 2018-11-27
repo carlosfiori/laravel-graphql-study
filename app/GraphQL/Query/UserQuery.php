@@ -30,11 +30,11 @@ class UserQuery extends Query
             ],
             'limit' => [
                 'name' => 'limit',
-                'type' => Type::int()
+                'type' => Type::int(),
             ],
             'page' => [
                 'name' => 'page',
-                'type' => Type::int()
+                'type' => Type::int(),
             ],
         ];
     }
@@ -46,7 +46,6 @@ class UserQuery extends Query
                 $query->where('id', $args['id']);
             }
         };
-
         $perPage = $args['limit'] ?? 10;
         $page = $args['page'] ?? 1;
         return User
