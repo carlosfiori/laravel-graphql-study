@@ -100,11 +100,10 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                'example_query' => ExampleQuery::class,
+                'users' => \App\GraphQL\Query\UserQuery::class,
+                'groups' => \App\GraphQL\Query\GroupQuery::class,
             ],
-            'mutation' => [
-                'example_mutation'  => ExampleMutation::class,
-            ],
+            'mutation' => [],
             'middleware' => [],
             'method' => ['get', 'post'],
         ],
@@ -120,8 +119,8 @@ return [
     // ]
     //
     'types' => [
-        'example'           => ExampleType::class,
-        'relation_example'  => ExampleRelationType::class,
+        'users' => \App\GraphQL\Type\UsersType::class,
+        'groups' => \App\GraphQL\Type\GroupsType::class,
     ],
 
     // This callable will be passed the Error object for each errors GraphQL catch.
@@ -134,7 +133,7 @@ return [
     'error_formatter' => ['\Rebing\GraphQL\GraphQL', 'formatError'],
 
     // You can set the key, which will be used to retrieve the dynamic variables
-    'params_key'    => 'variables',
+    'params_key' => 'variables',
 
     /*
      * Options to limit the query complexity and depth. See the doc
@@ -144,7 +143,7 @@ return [
     'security' => [
         'query_max_complexity' => null,
         'query_max_depth' => null,
-        'disable_introspection' => false
+        'disable_introspection' => false,
     ],
 
     // You can define custom paginators to override the out-of-the-box fields
@@ -160,7 +159,7 @@ return [
      */
     'graphiql' => [
         'prefix' => '/graphiql/{graphql_schema?}',
-        'controller' => \Rebing\GraphQL\GraphQLController::class.'@graphiql',
+        'controller' => \Rebing\GraphQL\GraphQLController::class . '@graphiql',
         'middleware' => [],
         'view' => 'graphql::graphiql',
         'display' => env('ENABLE_GRAPHIQL', true),
