@@ -34,6 +34,10 @@ class UsersType extends GraphQLType
                 'type' => GraphQL::type('groups'),
                 'description' => 'Grupo do usuario',
             ],
+            'posts' => [
+                'type' => Type::listOf(GraphQL::type('posts')),
+                'description' => 'Posts do usuario',
+            ]
         ];
     }
 }

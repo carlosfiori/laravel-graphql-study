@@ -102,6 +102,7 @@ return [
             'query' => [
                 'users' => \App\GraphQL\Query\UserQuery::class,
                 'groups' => \App\GraphQL\Query\GroupQuery::class,
+                'posts' => \App\GraphQL\Query\PostQuery::class,
             ],
             'mutation' => [],
             'middleware' => [],
@@ -121,6 +122,7 @@ return [
     'types' => [
         'users' => \App\GraphQL\Type\UsersType::class,
         'groups' => \App\GraphQL\Type\GroupsType::class,
+        'posts' => \App\GraphQL\Type\PostsType::class,
     ],
 
     // This callable will be passed the Error object for each errors GraphQL catch.
