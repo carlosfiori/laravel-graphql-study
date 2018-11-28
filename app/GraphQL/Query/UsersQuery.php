@@ -2,23 +2,23 @@
 
 namespace App\GraphQL\Query;
 
-use App\Post;
+use App\User;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Query;
 use Rebing\GraphQL\Support\SelectFields;
 
-class PostQuery extends Query
+class UsersQuery extends Query
 {
 
     protected $attributes = [
-        'name' => 'Post Query 1',
-        'description' => 'Descrição da post query',
+        'name' => 'Users Query 1',
+        'description' => 'Descrição da user query',
     ];
 
     public function type()
     {
-        return GraphQL::paginate('post');
+        return GraphQL::paginate('user');
     }
 
     public function args()
@@ -46,10 +46,9 @@ class PostQuery extends Query
                 $query->where('id', $args['id']);
             }
         };
-
         $perPage = $args['limit'] ?? 10;
         $page = $args['page'] ?? 1;
-        return Post
+        return User
             ::with($fields->getRelations())
             ->where($where)
             ->select($fields->getSelect())

@@ -18,7 +18,7 @@ class GroupQuery extends Query
 
     public function type()
     {
-        return Type::listOf(GraphQL::type('groups'));
+        return Type::listOf(GraphQL::type('group'));
     }
 
     public function resolve($root, $args, SelectFields $fields, ResolveInfo $info)

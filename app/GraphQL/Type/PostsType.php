@@ -31,7 +31,7 @@ class PostsType extends GraphQLType
                 'description' => 'The body of the post',
             ],
             'user' => [
-                'type' => GraphQL::type('users'),
+                'type' => GraphQL::type('user'),
                 'description' => 'The user of the post',
             ],
         ];
