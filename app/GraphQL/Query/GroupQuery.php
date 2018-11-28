@@ -21,13 +21,6 @@ class GroupQuery extends Query
         return Type::listOf(GraphQL::type('groups'));
     }
 
-    public function args()
-    {
-        return [
-
-        ];
-    }
-
     public function resolve($root, $args, SelectFields $fields, ResolveInfo $info)
     {
         $select = $fields->getSelect();

@@ -4,6 +4,7 @@ namespace App\GraphQL\Type;
 
 use App\Group;
 use GraphQL\Type\Definition\Type;
+use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Type as GraphQLType;
 
 class GroupsType extends GraphQLType
@@ -24,6 +25,10 @@ class GroupsType extends GraphQLType
             'descricao' => [
                 'type' => Type::string(),
                 'description' => 'Descricao',
+            ],
+            'users' => [
+                'type' => Type::listOf(GraphQL::type('users')),
+                'description' => 'Usuarios do Grupo',
             ],
         ];
     }
